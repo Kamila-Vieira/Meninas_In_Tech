@@ -1,0 +1,53 @@
+
+<canvas width="800" height="600"></canvas>
+Escolha uma cor do pincel: <input type="color">
+<button id="botaoMais" style="background-color: green; color: black;">Aumentar pincel</button>
+<button id="botaoMenos" style="background-color: red; color: black;">Diminuir pincel</button>
+<button id="limpaTela" style="background-color: blue; color: black;">Limpar tela</button>
+
+<script>
+  var tela = document.querySelector("canvas");
+  var pincel = tela.getContext('2d');
+  var botaoMais = document.querySelector('#botaoMais');
+  var botaoMenos = document.querySelector('#botaoMenos');
+  var botaoLimpar = document.querySelector('#limpaTela');
+  var selecionaCor = document.querySelector('input');
+
+  pincel.fillStyle = 'white';
+  pincel.fillRect(0, 0, 800, 600);
+  pincel.strokeRect(0, 0, 800, 600);
+
+  var desenha = false;
+  var raio = 10;
+
+
+  tela.onmousemove = function(evento){
+    botaoMais.onclick = function(){
+      if(raio < 10){raio++;}
+    }
+    botaoMenos.onclick = function(){
+      if(raio > 1){raio--;}
+    }
+    if(desenha){
+      var x = evento.pageX - tela.offsetLeft;
+      var y = evento.pageY - tela.offsetTop;
+      pincel.fillStyle = selecionaCor.value;
+      pincel.beginPath();
+      pincel.arc(x, y, raio, 0, 2 * Math.PI);
+      pincel.fill();
+    }
+  };
+
+  tela.onmousedown = function(){
+    desenha = true;
+  };
+  tela.onmouseup = function(){
+    desenha = false;
+  };
+
+  botaoLimpar.onclick = function(){
+      pincel.clearRect(0, 0, 800, 600);
+      pincel.strokeRect(0, 0, 800, 600);
+  }
+
+</script>

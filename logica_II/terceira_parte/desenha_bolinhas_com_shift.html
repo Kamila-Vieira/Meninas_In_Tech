@@ -1,0 +1,36 @@
+<canvas width="600" height="400"></canvas>
+<script>
+  var tela = document.querySelector("canvas");
+  var pincel = tela.getContext('2d');
+
+  pincel.fillStyle = 'black';
+  pincel.fillRect(0, 0, 600, 400);
+  var raio = 10;
+  function desenhaBolinha(x, y, raio, cor){
+    pincel.fillStyle = cor;
+    pincel.beginPath();
+    pincel.arc(x, y, raio, 0, 2 * 3.14);
+    pincel.fill();
+  };
+  
+  function mostraBolinhas(evento){
+    var x = evento.pageX - tela.offsetTop;
+    var y = evento.pageY - tela.offsetLeft;
+
+    if(raio < 50){
+      if(evento.shiftKey){
+        raio = raio + 10;
+      }
+    }
+    if(raio > 10){
+      if(evento.altKey){
+        raio = raio - 5;
+      }
+    }
+
+    desenhaBolinha(x, y, raio, 'red');
+  }
+
+  tela.onclick = mostraBolinhas;
+
+</script>

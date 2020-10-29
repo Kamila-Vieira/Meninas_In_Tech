@@ -1,0 +1,55 @@
+<script>
+const products = [
+  "preto-PP", 
+  "preto-M", 
+  "preto-G", 
+  "preto-GG", 
+  "preto-GG", 
+  "branco-PP", 
+  "branco-G", 
+  "vermelho-M", 
+  "azul-XG", 
+  "azul-XG", 
+  "azul-XG", 
+  "azul-P"
+]
+
+const newObject = (arr) => {
+  let newObjectFromArray = {
+    preto: {},
+    branco: {},
+    vermelho: {},
+    azul: {}
+  }
+  let countElements = 1;
+  let counter = 0;
+  const objectOfArray = arr
+    .map((elements, i) => {
+      primaryElements = elements.replace('-',' ').substr(0, (elements.length - 2)).trim();
+      let secondaryElements = elements.replace('-',' ').substr((elements.length - 2), 2).trim();
+      if(arr[arr.indexOf(elements)] == arr[arr.indexOf(elements) + 2]){
+        counter = countElements + 2;
+      } else if(arr[arr.indexOf(elements)] == arr[arr.indexOf(elements) + 1]){
+        counter = countElements + 1;
+      } else {
+        counter = countElements;
+      }
+      
+      elements = JSON.parse(`{"${primaryElements}":{"${secondaryElements}":${counter}}}`);
+      const cancatElements = (ObjColor, ObjLength) => {
+        let auxNewObject = Object.assign(ObjColor, ObjLength)
+        return auxNewObject;
+      }
+      let auxNewObject = Object.assign({},
+        cancatElements(newObjectFromArray.preto, elements.preto),
+        cancatElements(newObjectFromArray.branco, elements.branco),
+        cancatElements(newObjectFromArray.vermelho, elements.vermelho),
+        cancatElements(newObjectFromArray.azul, elements.azul)
+      );
+    });
+  return newObjectFromArray;
+}
+
+newObject(products);
+
+</script>
