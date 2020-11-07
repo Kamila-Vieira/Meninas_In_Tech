@@ -1,0 +1,20 @@
+alfabeto: abc...;
+binário: 01;
+numérico: 123456789;
+hexadecimal: 123456789abc...;
+
+RGB = RED GREEN BLUE;
+# _ _ _ _ _ _
+0 = AUSÊNCIA DE COR; (#000000)
+F = MÁXIMO (TODAS AS CORES (#FFFFFF));
+RED => #FF0000;
+GREEN => #00FF00;
+BLUE => #0000FF;
+
+RGB: 0, 1, 2, 3, ...255;
+RGB(_, _, _)
+255 = MÁXIMO (TODAS AS CORES (RGB(255, 255, 255)));
+0 = AUSÊNCIA DE COR (RGB(0, 0, 0)); 
+RED => RGB(255, 0, 0);
+GREEN => RGB(0, 255, 0);
+BLUE => RGB(0, 0, 255);
