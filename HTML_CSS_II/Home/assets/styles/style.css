@@ -1,8 +1,36 @@
-body {
+header {
+  background: #bbbbbb;
+  padding: 20px 0;
 }
-.titulo-principal {
-  padding-left: 20px;
+.caixa {
+  position: relative;
+  width: 940px;
+  margin: 0 auto;
 }
+nav {
+  position: absolute;
+  right: 0;
+  top: 110px;
+}
+nav ul {
+  display: flex;
+}
+nav li {
+  display: inline;
+  margin-left: 19px;
+}
+nav a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: 22px;
+}
+nav a:hover {
+  color: #c78c19;
+  text-decoration: underline;
+}
+
 #banner {
   width: 100%;
 }
@@ -12,16 +40,24 @@ body {
 }
 .titulo-centralizado {
   text-align: center;
-  color: cadetblue;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 p {
   text-align: center;
+  margin: 10px 0;
+}
+.sobre-barbearia strong {
+  font-weight: bold;
 }
 #missao {
   font-size: 20px;
 }
 em strong {
   color: #ff0000;
+  font-weight: bold;
+  font-style: oblique;
 }
 .beneficios {
   background: #ffffff;
@@ -38,4 +74,15 @@ ul {
 }
 .imagem-beneficios {
   width: 50%;
+}
+
+footer {
+  text-align: center;
+  background-image: url("../../../Produtos/assets/img/bg.jpg");
+  padding: 40px 0;
+}
+.copyright {
+  color: #ffffff;
+  font-size: 13px;
+  margin-top: 20px;
 }
