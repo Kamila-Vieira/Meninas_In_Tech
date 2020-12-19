@@ -6,8 +6,9 @@ botaoAdicionarPaciente.addEventListener("click", function(evento){
   var form = document.querySelector('#form-adiciona');
   var infoPaciente = obterInfoForm(form);
   var novoPaciente = criarNovoPaciente();
+  adicionarClasseAoNovoPaciente(novoPaciente);
 
-	novoPaciente.nome.textContent = infoPaciente.nome;
+  novoPaciente.nome.textContent = infoPaciente.nome;
 	novoPaciente.peso.textContent = infoPaciente.peso;
 	novoPaciente.altura.textContent = infoPaciente.altura;
 	novoPaciente.gordura.textContent = infoPaciente.gordura;
@@ -42,5 +43,21 @@ function criarNovoPaciente(){
     gordura: document.createElement("td"),
     imc: document.createElement("td")
   }
-
 }
+
+function adicionarClasseAoNovoPaciente(dadosNovoPaciente){
+  dadosNovoPaciente.paciente.classList.add('paciente');
+  dadosNovoPaciente.peso.classList.add('info-peso');
+  dadosNovoPaciente.altura.classList.add('info-altura');
+  dadosNovoPaciente.gordura.classList.add('info-gordura');
+  dadosNovoPaciente.imc.classList.add('info-imc');
+}
+/* 
+function adicionarNovoPacienteNaTabela(){
+  var dadosPaciente = [nome, peso, altura, gordura, imc];
+  for (var i = 0; i < dadosPaciente.length; i++) {
+    novoPaciente.dadosPaciente[i].textContent = dadosPaciente.nome;
+    
+  }
+  
+} */
