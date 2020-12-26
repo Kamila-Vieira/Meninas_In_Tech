@@ -3,13 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Aparecida Nutrição</title>
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="./img/icon/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 
 	</head>
 	<body>
-
 		<header>
 			<div class="container">
 				<h1 class="titulo">Aparecida Nutrição</h1>
@@ -18,6 +17,15 @@
 		<main>
 			<section class="container">
 				<h2>Meus pacientes</h2>
+				<label for="filtrar-tabela">Filtro:</label>
+				<input 
+					type="text" 
+					name="filtro" 
+					id="filtrar-tabela"
+					class="filtro"
+					placeholder="Digite o nome do paciente"
+				>
+				<span id="erro-ajax" class="invisivel"></span>
 				<table>
 					<thead>
 						<tr>
@@ -29,7 +37,7 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
-						<tr class="paciente" id="primeiro-paciente">
+						<tr class="paciente">
 							<td class="info-nome">Paulo</td>
 							<td class="info-peso">100</td>
 							<td class="info-altura">2.00</td>
@@ -37,7 +45,7 @@
 							<td class="info-imc">0</td>
 						</tr>
 
-						<tr class="paciente" id="segundo-paciente">
+						<tr class="paciente">
 							<td class="info-nome">João</td>
 							<td class="info-peso">80</td>
 							<td class="info-altura">1.72</td>
@@ -45,7 +53,7 @@
 							<td class="info-imc">0</td>
 						</tr>
 
-						<tr class="paciente" id="terceiro-paciente">
+						<tr class="paciente">
 							<td class="info-nome">Erica</td>
 							<td class="info-peso">54</td>
 							<td class="info-altura">1.64</td>
@@ -53,14 +61,14 @@
 							<td class="info-imc">0</td>
 						</tr>
 
-						<tr class="paciente" id="quarto-paciente">
+						<tr class="paciente">
 							<td class="info-nome">Douglas</td>
 							<td class="info-peso">85</td>
 							<td class="info-altura">1.73</td>
 							<td class="info-gordura">24</td>
 							<td class="info-imc">0</td>
 						</tr>
-						<tr class="paciente" id="quinto-paciente">
+						<tr class="paciente">
 							<td class="info-nome">Tatiana</td>
 							<td class="info-peso">46</td>
 							<td class="info-altura">1.55</td>
@@ -69,11 +77,13 @@
 						</tr>
 					</tbody>
 				</table>
+				<button id="buscar-pacientes" class="botao bto-principal">Buscar Paciente</button>
 			</section>
 		</main>
 		<!-- ... -->
 	<section class="container">
 		<h2 id="titulo-form">Adicionar novo paciente</h2>
+		<ul id="mensagens-erro"></ul>
 		<form id="form-adiciona">
 				<div class="grupo">
 						<label for="nome">Nome:</label>
@@ -97,5 +107,8 @@
 	</section>
 <script src="./js/calcula-imc.js"></script>
 <script src="./js/form.js"></script>
+<script src="./js/remover_paciente.js"></script>
+<script src="./js/filtra.js"></script>
+<script src="./js/buscar-pacientes.js"></script>
 	</body>
 </html>
